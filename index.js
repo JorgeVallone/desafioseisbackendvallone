@@ -3,7 +3,7 @@ const { Server: HttpServer } = require('http')
 const { Server: IO } = require('socket.io')
 const { engine } = require("express-handlebars")
 const path = require("path")
-const ProductControler = require("../desafio-WebSockets/controllers/productControler")
+const ProductControler = require("../desafioSeisBackendVallone/controllers/productControler")
 
 //--------------------------------------------
 // instancio servidor, socket y api
@@ -17,14 +17,7 @@ const fileMessages = new ProductControler("./controllers/db/messages.txt")
 const httpServer = new HttpServer(app)
 const io = new IO(httpServer)
 
-// const messages = [
-//     { author: 'Pablo', text: 'Hola, que tal' },
-//     { author: 'Marcelo', text: 'muy bien y tu?' },
-//     { author: 'Belen', text: 'Hola!!' }
-// ]
-// const Products = [
-//     { title: 'agua', price: 20, thumbnail: 'https://dummyimage.com/250/000/fff'}
-// ]
+
 
 io.on('connection', async (socket) => {
     console.log('nuevo cliente conectado');
